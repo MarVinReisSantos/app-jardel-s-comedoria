@@ -1,5 +1,4 @@
-# Ponto de Reciclagem
-
+# Jardel's Comedoria
 `CURSO: Sistemas de Informação`
 
 `DISCIPLINA: Desenvolvimento de Aplicações Móveis`
