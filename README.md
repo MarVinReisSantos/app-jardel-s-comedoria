@@ -14,5 +14,5 @@ O projeto tem como objetivo promover o atendimento digital sustentável, evitand
 * Arthur Santos Bezerra
 * Bernardo 
 * Gabriel Rodrigues Martins
-* Matheus Felipe Coelho Rodriges
+* Matheus Felipe Coelho Rodrigues
 * Marcos Vinícius dos Reis Santos
