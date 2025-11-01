@@ -8,7 +8,7 @@ import {
   TouchableOpacity, 
   ActivityIndicator 
 } from 'react-native';
-import { addCliente } from '../database/queries'; // função para inserir cliente no banco
+// import { addCliente } from '../database/queries'; // função para inserir cliente no banco
 
 export default function AddClientScreen({ navigation, route }) {
   const [nome, setNome] = useState('');
@@ -23,7 +23,7 @@ export default function AddClientScreen({ navigation, route }) {
 
     setLoading(true);
     try {
-      await addCliente(nome.trim(), email.trim());
+      // await addCliente(nome.trim(), email.trim());
       Alert.alert('Sucesso', `Cliente "${nome}" adicionado!`);
       setNome('');
       setEmail('');

@@ -8,7 +8,7 @@ import {
   TouchableOpacity, 
   ActivityIndicator 
 } from 'react-native';
-import { addFilme } from '../database/queries';
+// import { addFilme } from '../database/queries';
 
 export default function AddMovieScreen({ navigation, route }) {
   const [titulo, setTitulo] = useState('');
@@ -30,7 +30,7 @@ export default function AddMovieScreen({ navigation, route }) {
 
     setLoading(true);
     try {
-      await addFilme(titulo.trim(), genero.trim(), anoInt);
+      // await addFilme(titulo.trim(), genero.trim(), anoInt);
       Alert.alert('Sucesso', `Filme "${titulo}" adicionado!`);
       setTitulo('');
       setGenero('');

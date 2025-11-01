@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { View, FlatList, Button, StyleSheet, Text } from 'react-native';
 import MovieCard from '../components/MovieCard';
-import { getFilmes } from '../database/queries';
+// import { getFilmes } from '../database/queries';
 
 export default function MovieListScreen({ navigation }) {
   const [filmes, setFilmes] = useState([]);
 
   useEffect(() => {
     (async () => {
-      await getFilmes(setFilmes);
+      // await getFilmes(setFilmes);
     })();
   }, []);
 
