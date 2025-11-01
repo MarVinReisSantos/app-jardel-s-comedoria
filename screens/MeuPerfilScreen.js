@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Modal } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-export default function MyProfile() {
+export default function MeuPerfilScreen() {
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   return (
@@ -16,7 +16,7 @@ export default function MyProfile() {
       {/* User Info */}
       <View style={styles.profileSection}>
         <Image
-          source={require('../assets/adaptive-icon.png')} // coloque um ícone genérico aqui
+          source={require('../assets/personal-image.png')} // coloque um ícone genérico aqui
           style={styles.avatar}
         />
         <Text style={styles.name}>Fulano de Tal</Text>
@@ -116,7 +116,6 @@ const styles = StyleSheet.create({
   avatar: {
     width: 80,
     height: 80,
-    tintColor: '#704b3a',
   },
   name: {
     marginTop: 10,

@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList, Image } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-export default function OrdersScreen() {
+export default function PedidosScreen({ navigation }) {
   const orders = [
     {
       id: '1',
@@ -59,8 +59,13 @@ export default function OrdersScreen() {
 
   return (
     <View style={styles.container}>
+      {/* HEADER */}  
       <View style={styles.header}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Ionicons name="arrow-back" size={22} color="#000" />
+        </TouchableOpacity>
         <Text style={styles.headerTitle}>Meu Pedidos</Text>
+        <Ionicons name="cart-outline" size={22} color="#000" style={{opacity: 0}} />
       </View>
 
       <FlatList
@@ -73,7 +78,7 @@ export default function OrdersScreen() {
 
       <View style={styles.footer}>
         <Ionicons name="time-outline" size={20} color="#999" />
-        <Text style={styles.footerText}>You have {orders.length} past orders</Text>
+        <Text style={styles.footerText}>Você tem {orders.length} pedidos anteriores</Text>
       </View>
     </View>
   );
@@ -97,24 +102,23 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fafafa',
-    // paddingHorizontal: 15,
-    // paddingTop: 40,
-  },
-  header: {
-    height: 80,
-    backgroundColor: '#b18b6b',
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    paddingBottom: 10,
-    paddingHorizontal: 15,
   },
   backIcon: {
     marginRight: 10,
   },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 40,
+    paddingBottom: 15,
+    paddingHorizontal: 15,
+    backgroundColor: '#fff',
+    justifyContent: 'space-between'
+  },
   headerTitle: {
     fontSize: 18,
-    color: '#fff',
     fontWeight: '600',
+    color: '#000'
   },
   card: {
     backgroundColor: '#fff',

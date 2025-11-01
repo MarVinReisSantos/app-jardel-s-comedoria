@@ -1,9 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MovieListScreen from '../screens/MovieListScreen';
-import ClientsScreen from '../screens/ClientsScreen';
-import RentalsScreen from '../screens/OrdersScreen';
-import MyProfile from '../screens/MyProfile';
+import ClientsScreen from '../screens/BebidasScreen';
+import RentalsScreen from '../screens/PedidosScreen';
+import MyProfile from '../screens/MeuPerfilScreen';
 import { Ionicons } from '@expo/vector-icons';
 import { View, Text } from 'react-native';
 import HomeScreen from '../screens/HomeScreen';
