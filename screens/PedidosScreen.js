@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import HeaderPage from "../components/HeaderPage";
 
 export default function PedidosScreen({ navigation }) {
   const orders = [
@@ -59,14 +60,11 @@ export default function PedidosScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      {/* HEADER */}  
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back" size={22} color="#000" />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>Meu Pedidos</Text>
-        <Ionicons name="cart-outline" size={22} color="#000" style={{opacity: 0}} />
-      </View>
+      {/* Header */}
+      <HeaderPage 
+        title={'Meu Pedidos'} 
+        navigation={navigation}
+      /> 
 
       <FlatList
         data={orders}

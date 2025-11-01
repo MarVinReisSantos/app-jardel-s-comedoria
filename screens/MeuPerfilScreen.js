@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Modal } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import HeaderPage from "../components/HeaderPage";
 
 export default function MeuPerfilScreen() {
   const [showLogoutModal, setShowLogoutModal] = useState(false);
@@ -8,10 +9,10 @@ export default function MeuPerfilScreen() {
   return (
     <View style={styles.container}>
       {/* Header */}
-      <View style={styles.header}>
-        {/* <Ionicons name="arrow-back" size={22} color="#fff" style={styles.backIcon} /> */}
-        <Text style={styles.headerTitle}>Meu Perfil</Text>
-      </View>
+      <HeaderPage 
+        title={'Meu Perfil'} 
+        navigation={navigation}
+      />   
 
       {/* User Info */}
       <View style={styles.profileSection}>
@@ -93,11 +94,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   header: {
-    height: 80,
     backgroundColor: '#b18b6b',
     flexDirection: 'row',
     alignItems: 'flex-end',
-    paddingBottom: 10,
+    paddingTop: 40,
+    paddingBottom: 15,
     paddingHorizontal: 15,
   },
   backIcon: {

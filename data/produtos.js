@@ -1,0 +1,158 @@
+export const produtos = [
+  // 🍕 PIZZAS
+  {
+    id: 1,
+    name: 'Pizza de Peperoni',
+    description: 'Massa assada coberta com molho, queijo e pepperoni crocante.',
+    price: '45.90',
+    type: 'Pizza',
+    popular: true,
+    image: require('../assets/pizza.png'),
+  },
+  {
+    id: 2,
+    name: 'Pizza Margherita',
+    description: 'Queijo, tomate e manjericão fresco em massa fina.',
+    price: '42.90',
+    type: 'Pizza',
+    popular: true,
+    image: require('../assets/pizza.png'),
+  },
+  {
+    id: 3,
+    name: 'Pizza de Calabresa',
+    description: 'Calabresa fatiada, cebola e orégano.',
+    price: '44.90',
+    type: 'Pizza',
+    popular: false,
+    image: require('../assets/pizza.png'),
+  },
+
+  // 🍔 HAMBÚRGUERES
+  {
+    id: 4,
+    name: 'Cheeseburger Duplo',
+    description: 'Dois hambúrgueres, queijo cheddar e pão brioche.',
+    price: '32.90',
+    type: 'Hambúrguer',
+    popular: true,
+    image: require('../assets/burger.png'),
+  },
+  {
+    id: 5,
+    name: 'X-Bacon Deluxe',
+    description: 'Bacon crocante, queijo, alface e molho especial.',
+    price: '36.90',
+    type: 'Hambúrguer',
+    popular: false,
+    image: require('../assets/burger.png'),
+  },
+  {
+    id: 6,
+    name: 'Smash Burger',
+    description: 'Hambúrguer prensado com cheddar e picles.',
+    price: '29.90',
+    type: 'Hambúrguer',
+    popular: false,
+    image: require('../assets/burger.png'),
+  },
+
+  // 🍣 SUSHI
+  {
+    id: 7,
+    name: 'Sushi Combo 12 Peças',
+    description: 'Seleção especial de nigiris e uramakis frescos.',
+    price: '59.90',
+    type: 'Sushi',
+    popular: false,
+    image: require('../assets/sushi.png'),
+  },
+  {
+    id: 8,
+    name: 'Temaki Salmão',
+    description: 'Cone de alga recheado com salmão fresco e cream cheese.',
+    price: '29.90',
+    type: 'Sushi',
+    popular: true,
+    image: require('../assets/sushi.png'),
+  },
+  {
+    id: 9,
+    name: 'Sashimi Salmão 8 unid.',
+    description: 'Salmão fresco fatiado, servido com shoyu e gengibre.',
+    price: '48.90',
+    type: 'Sushi',
+    popular: false,
+    image: require('../assets/sushi.png'),
+  },
+
+  // 🍝 MASSAS
+  {
+    id: 10,
+    name: 'Espaguete à Bolonhesa',
+    description: 'Massa italiana com molho de carne e tomate.',
+    price: '42.90',
+    type: 'Pasta',
+    popular: false,
+    image: require('../assets/pasta.png'),
+  },
+  {
+    id: 11,
+    name: 'Fettuccine Alfredo',
+    description: 'Massa cremosa com molho branco e queijo parmesão.',
+    price: '44.90',
+    type: 'Pasta',
+    popular: false,
+    image: require('../assets/pasta.png'),
+  },
+  {
+    id: 12,
+    name: 'Lasanha de Frango',
+    description: 'Lasanha artesanal com frango desfiado e molho rosé.',
+    price: '46.90',
+    type: 'Pasta',
+    popular: false,
+    image: require('../assets/pasta.png'),
+  },
+  // 🥤 BEBIDAS
+  {
+    id: 13,
+    name: "Refrigerante Guaraná Lata",
+    description: "Bebida gelada gaseificada com sabor artificial de guaraná",
+    volume: "350ml",
+    price: "7.10",
+    type: 'Bebida',
+    popular: false,
+    image: require('../assets/guarana.png')
+  },
+  {
+    id: 14,
+    name: "Refrigerante Coca-Cola Lata",
+    description: "Bebida gelada gaseificada com sabor artificial de caramelo",
+    volume: "350ml",
+    price: "11.90",
+    type: 'Bebida',
+    popular: true,
+    image: require('../assets/coca.png')
+  },
+  {
+    id: 15,
+    name: "Água Mineral sem Gás",
+    description: "Água mineral em garrafa cristalina",
+    volume: "300ml",
+    price: "5.50",
+    type: 'Bebida',
+    popular: false,
+    image: require('../assets/agua.png')
+  },
+  {
+    id: 16,
+    name: "Café Expresso",
+    description: "Café expresso feito ao momento",
+    volume: "150ml",
+    price: "8.90",
+    type: 'Bebida',
+    popular: false,
+    image: require('../assets/cafe.png')
+  },
+];
