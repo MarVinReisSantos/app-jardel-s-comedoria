@@ -3,7 +3,7 @@
 
 `DISCIPLINA: Desenvolvimento de Aplicações Móveis`
 
-`PROFESSOR: Jardel `
+`PROFESSOR: Jardell Fillipe da Silva`
 
 `2º semestre/2025`
 
