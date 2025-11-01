@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image, Modal } from 'react-na
 import { Ionicons } from '@expo/vector-icons';
 import HeaderPage from "../components/HeaderPage";
 
-export default function MeuPerfilScreen() {
+export default function MeuPerfilScreen({ navigation }) {
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   return (
