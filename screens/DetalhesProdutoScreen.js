@@ -2,18 +2,31 @@ import React, { useState } from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet, Modal } from "react-native";
 import { formatPrice } from "../utils/common";
 import HeaderPage from "../components/HeaderPage";
+import { pedidos } from '../data/pedidos';
 
 export default function DetalhesProdutoScreen({ route, navigation }) {
   const { product } = route.params;
   const [qty, setQty] = useState(1);
   const [visible, setVisible] = useState(false);
+  const [mensagem, setMensagem] = useState('Produto adicionado com sucesso.');
 
   const subtotal = parseFloat(product.price.replace(',','.')) * qty;
 
   function handleAdd() {
+    const exist = pedidos.find((p) => p.id === product.id);
+
+    if (exist) {
+      setMensagem('Produto já foi adicionado.');
+      setVisible(true);
+      return;
+    }
+    
+    pedidos.push({ ...product, status: "Em Andamento" });
+    setMensagem('Produto adicionado com sucesso.');
     setVisible(true);
   }
 
+  console.log(pedidos)
   return (
     <View style={{ flex: 1, backgroundColor: "#F5F5F5" }}>
 
@@ -67,18 +80,7 @@ export default function DetalhesProdutoScreen({ route, navigation }) {
       <Modal transparent visible={visible} animationType="fade">
         <View style={styles.modalBG}>
           <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>Produto adicionado com sucesso!</Text>
-            <Text style={styles.modalText}>
-              Você pode verificar todos os itens em sua sacola tocando no ícone acima
-            </Text>
-
-            <TouchableOpacity style={styles.modalButton}>
-              <Text style={styles.modalButtonText}>Ver minha sacola</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.modalButton}>
-              <Text style={styles.modalButtonText}>Voltar ao cardápio</Text>
-            </TouchableOpacity>
+            <Text style={styles.modalTitle}>{mensagem}</Text>
 
             <TouchableOpacity style={styles.modalButton} onPress={() => setVisible(false)}>
               <Text style={styles.modalButtonText}>Ver mais itens</Text>

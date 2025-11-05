@@ -16,7 +16,7 @@ export const produtos = [
   price: '42.90',
   type: 'Pizza',
   popular: true,
-  image: require('../assets/pizza_margherita.jpg'),
+  image: require('../assets/pizza.png'),
   },
   {
   id: 3,
@@ -25,7 +25,7 @@ export const produtos = [
   price: '44.90',
   type: 'Pizza',
   popular: false,
-  image: require('../assets/pizza_calabresa.jpg'),
+  image: require('../assets/pizza.png'),
   },
   
   // 🍔 HAMBÚRGUERES
@@ -36,7 +36,7 @@ export const produtos = [
   price: '32.90',
   type: 'Hambúrguer',
   popular: true,
-  image: require('../assets/burger_duplo.jpg'),
+  image: require('../assets/pizza.png'),
   },
   {
   id: 5,
@@ -45,7 +45,7 @@ export const produtos = [
   price: '36.90',
   type: 'Hambúrguer',
   popular: false,
-  image: require('../assets/xbacon_deluxe.jpg'),
+  image: require('../assets/pizza.png'),
   },
   {
   id: 6,
@@ -54,38 +54,38 @@ export const produtos = [
   price: '29.90',
   type: 'Hambúrguer',
   popular: false,
-  image: require('../assets/smash_burger.jpg'),
+  image: require('../assets/pizza.png'),
   },
 
   // 🍣 SUSHI
   {
-  id: 7,
-  name: 'Sushi Combo 12 Peças',
-  description: 'Seleção especial de nigiris e uramakis frescos.',
-  price: '59.90',
-  type: 'Sushi',
-  popular: false,
-  image: require('../assets/sushi_combo.jpg'),
+    id: 7,
+    name: 'Sushi Combo 12 Peças',
+    description: 'Seleção especial de nigiris e uramakis frescos.',
+    price: '59.90',
+    type: 'Sushi',
+    popular: false,
+    image: require('../assets/sushi.png'),
   },
   {
-     id: 8,
-  name: 'Temaki Salmão',
-  description: 'Cone de alga recheado com salmão fresco e cream cheese.',
-  price: '29.90',
-  type: 'Sushi',
-  popular: true,
-  image: require('../assets/temaki_salmao.jpg'),
+    id: 8,
+    name: 'Temaki Salmão',
+    description: 'Cone de alga recheado com salmão fresco e cream cheese.',
+    price: '29.90',
+    type: 'Sushi',
+    popular: true,
+    image: require('../assets/sushi.png'),
   },
   {
-  id: 9,
-  name: 'Sashimi Salmão 8 unid.',
-  description: 'Salmão fresco fatiado, servido com shoyu e gengibre.',
-  price: '48.90',
-  type: 'Sushi',
-  popular: false,
-  image: require('../assets/sashimi_salmao.jpg'),
+    id: 9,
+    name: 'Sashimi Salmão 8 unid.',
+    description: 'Salmão fresco fatiado, servido com shoyu e gengibre.',
+    price: '48.90',
+    type: 'Sushi',
+    popular: false,
+    image: require('../assets/sushi.png'),
   },
-  
+
   // 🍝 MASSAS
   {
     id: 10,
