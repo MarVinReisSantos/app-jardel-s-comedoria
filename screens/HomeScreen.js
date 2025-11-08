@@ -1,14 +1,40 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { produtos } from '../data/produtos';
 import ProductCard from '../components/ProductCard';
 import ProductCategory from '../components/ProductCategory';
 
 export default function HomeScreen({ navigation }) {
+  const [produtos, setProdutos] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadProducts() {
+      try {
+        const res = await fetch('http://localhost:3000/api/products');
+        const data = await res.json();
+        setProdutos(data);
+      } catch (error) {
+        console.log('erro ao buscar produtos =>', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadProducts();
+  }, []);
+
   const popularItems = produtos.filter(
     (item) => item.popular === true
   );
+
+  if (loading) {
+    return (
+      <View style={{ flex:1, justifyContent:'center', alignItems:'center' }}>
+        <ActivityIndicator size="large"/>
+      </View>
+    );
+  }
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
@@ -33,7 +59,7 @@ export default function HomeScreen({ navigation }) {
       <Text style={styles.sectionTitle}>Populares da Casa</Text>
       <View style={styles.popularContainer}>
         {popularItems.map((item) => (
-          <ProductCard key={item.id} item={item}/>
+          <ProductCard key={item._id} item={item}/>
         ))}
       </View>
     </ScrollView>

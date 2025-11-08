@@ -1,16 +1,40 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { produtos } from '../data/produtos';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
 import ProductCard from '../components/ProductCard';
 import HeaderPage from "../components/HeaderPage";
 
 export default function CategoriaScreen({ route, navigation }) {
+  const [produtos, setProdutos] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { category } = route.params;
+
+  useEffect(() => {
+    async function loadProducts() {
+      try {
+        const res = await fetch('http://localhost:3000/api/products');
+        const data = await res.json();
+        setProdutos(data);
+      } catch (error) {
+        console.log('erro ao buscar produtos =>', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadProducts();
+  }, []);
 
   const produtosFiltrados = produtos.filter(
     (item) => item.type.toLowerCase() === category.toLowerCase()
   );
+
+  if (loading) {
+    return (
+      <View style={{ flex:1, justifyContent:'center', alignItems:'center' }}>
+        <ActivityIndicator size="large"/>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>

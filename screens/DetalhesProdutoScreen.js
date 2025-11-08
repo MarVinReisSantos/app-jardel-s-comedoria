@@ -1,32 +1,77 @@
-import React, { useState } from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet, Modal } from "react-native";
+import React, { useEffect, useState, useContext } from 'react';
+import { View, Text, Image, TouchableOpacity, StyleSheet, Modal, ActivityIndicator } from "react-native";
 import { formatPrice } from "../utils/common";
 import HeaderPage from "../components/HeaderPage";
-import { pedidos } from '../data/pedidos';
+import { AuthContext } from '../context/AuthContext';
 
 export default function DetalhesProdutoScreen({ route, navigation }) {
+  const [loading, setLoading] = useState(true);
   const { product } = route.params;
   const [qty, setQty] = useState(1);
   const [visible, setVisible] = useState(false);
   const [mensagem, setMensagem] = useState('Produto adicionado com sucesso.');
+  const [produtos, setProdutos] = useState([]);
+  const { user } = useContext(AuthContext);
 
-  const subtotal = parseFloat(product.price.replace(',','.')) * qty;
-
-  function handleAdd() {
-    const exist = pedidos.find((p) => p.id === product.id);
-
-    if (exist) {
-      setMensagem('Produto já foi adicionado.');
-      setVisible(true);
-      return;
+  useEffect(() => {
+    async function loadProducts() {
+      try {
+        const res = await fetch('http://localhost:3000/api/orders');
+        const data = await res.json();
+        setProdutos(data);
+      } catch (error) {
+        console.log('erro ao buscar produtos =>', error);
+      } finally {
+        setLoading(false);
+      }
     }
-    
-    pedidos.push({ ...product, status: "Em Andamento" });
-    setMensagem('Produto adicionado com sucesso.');
-    setVisible(true);
+
+    loadProducts();
+  }, []);
+
+  const handleAdd = async () => {
+    try {
+      const res = await fetch(`http://localhost:3000/api/orders`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          userId: user._id,
+          productId: product._id,
+          quantity: qty
+        })
+      });
+
+      await res.json();
+      setMensagem('Produto adicionado com sucesso.');
+    } catch (error) {
+      console.log('erro ao inserir pedido =>', error);
+      setMensagem('Erro ao adicionar produto.');
+    } finally {
+      setLoading(false);
+      setVisible(true);
+    }
   }
 
-  console.log(pedidos)
+  const subtotal = parseFloat(product.price) * qty;
+
+  if (loading) {
+    return (
+      <View style={{ flex:1, justifyContent:'center', alignItems:'center' }}>
+        <ActivityIndicator size="large"/>
+      </View>
+    );
+  }
+
+  if (loading) {
+    return (
+      <View style={{ flex:1, justifyContent:'center', alignItems:'center' }}>
+        <ActivityIndicator size="large"/>
+      </View>
+    );
+  }
+
   return (
     <View style={{ flex: 1, backgroundColor: "#F5F5F5" }}>
 
@@ -36,7 +81,7 @@ export default function DetalhesProdutoScreen({ route, navigation }) {
         navigation={navigation}
       />      
 
-      <Image source={product.image} style={styles.image} />
+      <Image source={"http://localhost:3000/uploads/" + product.image } style={styles.image} />
 
       <View style={styles.box}>
         <View style={styles.titlePriceRow}>

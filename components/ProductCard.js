@@ -12,7 +12,7 @@ export default function ProductCard({ item }) {
 
   return (
     <TouchableOpacity onPress={goToDetails} key={item.id} style={styles.popularCard}>
-      <Image source={item.image} style={styles.popularImage} />
+      <Image source={"http://localhost:3000/uploads/" + item.image } style={styles.popularImage} />
       <View style={styles.popularInfo}>
         <Text style={styles.popularName}>{item.name}</Text>
         <Text style={styles.popularDescription}>{item.description}</Text>

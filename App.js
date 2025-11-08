@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { FavoritesProvider } from './context/FavoritesContext';
+import { AuthProvider } from './context/AuthContext';
 import StackNavigator from './navigation/StackNavigator';
 
 export default function App() {
   return (
-    <FavoritesProvider>
+    <AuthProvider>
       <NavigationContainer>
         <StackNavigator />
       </NavigationContainer>
-    </FavoritesProvider>
+    </AuthProvider>
   );
 }

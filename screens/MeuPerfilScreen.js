@@ -1,10 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, Modal } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import HeaderPage from "../components/HeaderPage";
+import { AuthContext } from '../context/AuthContext';
 
 export default function MeuPerfilScreen({ navigation }) {
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const { user, signOut } = useContext(AuthContext);
+
+  const handleSignOut = async () => {
+    setShowLogoutModal(false);
+    // await signOut();
+
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Login' }],
+    });
+  };
+
 
   return (
     <View style={styles.container}>
@@ -20,8 +33,8 @@ export default function MeuPerfilScreen({ navigation }) {
           source={require('../assets/personal-image.png')} // coloque um ícone genérico aqui
           style={styles.avatar}
         />
-        <Text style={styles.name}>Fulano de Tal</Text>
-        <Text style={styles.email}>fulano.detal@gmail.com</Text>
+        <Text style={styles.name}>{user.name}</Text>
+        <Text style={styles.email}>{user.email}</Text>
       </View>
 
       {/* Stats */}
@@ -73,7 +86,7 @@ export default function MeuPerfilScreen({ navigation }) {
               Tem certeza que deseja continuar?
             </Text>
             <TouchableOpacity style={styles.btnLogout} onPress={() => setShowLogoutModal(false)}>
-              <Text style={styles.btnLogoutText}>Sair da conta</Text>
+              <Text style={styles.btnLogoutText} onPress={handleSignOut}>Sair da conta</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.btnStay}
