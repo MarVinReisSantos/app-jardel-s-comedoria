@@ -1,9 +1,8 @@
 import React, { createContext, useState, useEffect } from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import axios from 'axios';
+import { API_URL } from '@env';
 
 export const AuthContext = createContext({});
-
 export const AuthProvider = ({ children }) => {
 
   const [user, setUser] = useState(null);
@@ -22,7 +21,7 @@ export const AuthProvider = ({ children }) => {
   }
 
   async function signIn(email, password){
-    const response = await fetch("http://localhost:3000/api/users/login", {
+    const response = await fetch(`${API_URL}/api/users/login`, {
       method:"POST",
       headers:{ "Content-Type":"application/json" },
       body:JSON.stringify({ email, password })
@@ -44,7 +43,7 @@ export const AuthProvider = ({ children }) => {
   }
   
   async function createAccount(email, password, name){
-     const response = await fetch("http://localhost:3000/api/users/register", {
+     const response = await fetch(`${API_URL}/api/users/register`, {
       method:"POST",
       headers:{ "Content-Type":"application/json" },
       body:JSON.stringify({ email, password, name })

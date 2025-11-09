@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, ActivityIn
 import { Ionicons } from '@expo/vector-icons';
 import ProductCard from '../components/ProductCard';
 import ProductCategory from '../components/ProductCategory';
+import { API_URL } from '@env';
 
 export default function HomeScreen({ navigation }) {
   const [produtos, setProdutos] = useState([]);
@@ -11,7 +12,7 @@ export default function HomeScreen({ navigation }) {
   useEffect(() => {
     async function loadProducts() {
       try {
-        const res = await fetch('http://localhost:3000/api/products');
+        const res = await fetch(`${API_URL}/api/products`);
         const data = await res.json();
         setProdutos(data);
       } catch (error) {

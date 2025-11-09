@@ -1,6 +1,6 @@
 import React from 'react'
 import { ScrollView, TouchableOpacity, Image, StyleSheet } from 'react-native';
-import { categories } from '../data/categorias';
+import { categories } from '../utils/common';
 
 export default function ProductCategory({navigation}) {
   return (

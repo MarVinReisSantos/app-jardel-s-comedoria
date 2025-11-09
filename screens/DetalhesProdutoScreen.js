@@ -3,6 +3,7 @@ import { View, Text, Image, TouchableOpacity, StyleSheet, Modal, ActivityIndicat
 import { formatPrice } from "../utils/common";
 import HeaderPage from "../components/HeaderPage";
 import { AuthContext } from '../context/AuthContext';
+import { API_URL } from '@env';
 
 export default function DetalhesProdutoScreen({ route, navigation }) {
   const [loading, setLoading] = useState(true);
@@ -16,7 +17,7 @@ export default function DetalhesProdutoScreen({ route, navigation }) {
   useEffect(() => {
     async function loadProducts() {
       try {
-        const res = await fetch('http://localhost:3000/api/orders');
+        const res = await fetch(`${API_URL}/api/orders`);
         const data = await res.json();
         setProdutos(data);
       } catch (error) {
@@ -31,7 +32,7 @@ export default function DetalhesProdutoScreen({ route, navigation }) {
 
   const handleAdd = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/api/orders`, {
+      const res = await fetch(`${API_URL}/api/orders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -81,7 +82,7 @@ export default function DetalhesProdutoScreen({ route, navigation }) {
         navigation={navigation}
       />      
 
-      <Image source={"http://localhost:3000/uploads/" + product.image } style={styles.image} />
+      <Image source={`${API_URL}/uploads/${product.image}`} style={styles.image} />
 
       <View style={styles.box}>
         <View style={styles.titlePriceRow}>

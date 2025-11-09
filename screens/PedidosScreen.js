@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity, Modal, Activ
 import HeaderPage from "../components/HeaderPage";
 import { formatPrice } from "../utils/common";
 import { AuthContext } from '../context/AuthContext';
+import { API_URL } from '@env';
 
 export default function PedidosScreen({ navigation }) {
   const [loading, setLoading] = useState(true);
@@ -14,7 +15,7 @@ export default function PedidosScreen({ navigation }) {
 
   const loadOrders = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/api/orders/${user._id}`);
+      const res = await fetch(`${API_URL}/api/orders/${user._id}`);
       const data = await res.json();
       setOrders(data);
     } catch (error) {
@@ -43,7 +44,7 @@ export default function PedidosScreen({ navigation }) {
 
   const handleConfirmAction = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/api/orders/${user._id}`, {
+      const res = await fetch(`${API_URL}/api/orders/${user._id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
@@ -74,7 +75,7 @@ export default function PedidosScreen({ navigation }) {
 
       <View style={styles.itemsContainer}>
         <View style={styles.itemRow}>
-          <Image source={"http://localhost:3000/uploads/" + item.productId.image} style={styles.itemImage} />
+          <Image source={`${API_URL}/uploads/${item.productId.image}`} style={styles.itemImage} />
           <Text style={styles.itemName}>{item.productId.name}</Text>
         </View>
       </View>

@@ -15,37 +15,6 @@ export default function LoginScreen({ navigation }) {
       Alert.alert("Erro", err.message);
     }
   }
-  // async function handleLogin() {
-  //   try {
-  //     const response = await fetch("", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json"
-  //       },
-  //       body: JSON.stringify({ email, password: senha })
-  //     });
-
-  //     const data = await response.json();
-
-  //     if(!response.ok){
-  //       Alert.alert("Erro", data.message || "Falha ao logar");
-  //       return;
-  //     }
-
-  //     // salva token
-  //     await AsyncStorage.setItem("token", data.token);
-  //     await AsyncStorage.setItem("user", JSON.stringify(data.user));
-
-  //     Alert.alert("Sucesso", "Login realizado!");
-
-  //     // pode navegar
-  //     navigation.navigate("MainTabs"); // troca pra sua tela
-
-  //   } catch(err){
-  //     console.log(err);
-  //     Alert.alert("Erro", "Falha interna");
-  //   }
-  // }
 
   return (
     <View style={styles.container}>

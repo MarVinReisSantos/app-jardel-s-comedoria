@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
 import ProductCard from '../components/ProductCard';
 import HeaderPage from "../components/HeaderPage";
+import { API_URL } from '@env';
 
 export default function CategoriaScreen({ route, navigation }) {
   const [produtos, setProdutos] = useState([]);
@@ -11,7 +12,7 @@ export default function CategoriaScreen({ route, navigation }) {
   useEffect(() => {
     async function loadProducts() {
       try {
-        const res = await fetch('http://localhost:3000/api/products');
+        const res = await fetch(`${API_URL}/api/products`);
         const data = await res.json();
         setProdutos(data);
       } catch (error) {
