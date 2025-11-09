@@ -47,7 +47,7 @@ export default function BebidasScreen({ navigation }) {
       {/* LISTA */}
       <View style={{ padding: 15 }}>
         {drinks.map((item) => (
-          <ProductCard key={item.id} item={item}/>
+          <ProductCard key={item._id} item={item}/>
         ))}
       </View>
     </ScrollView>

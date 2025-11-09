@@ -51,7 +51,7 @@ export default function CategoriaScreen({ route, navigation }) {
           <Text style={styles.emptyText}>Nenhum produto encontrado</Text>
         ) : (
           produtosFiltrados.map((item) => (
-            <ProductCard key={item.id} item={item}/>
+            <ProductCard key={item._id} item={item}/>
           ))
         )}
       </ScrollView>

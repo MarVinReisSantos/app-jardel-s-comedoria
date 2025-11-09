@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { formatPrice } from "../utils/common";
+import { API_URL } from '@env';
 
 export default function ProductCard({ item }) {
   const navigation = useNavigation();
@@ -12,7 +13,7 @@ export default function ProductCard({ item }) {
 
   return (
     <TouchableOpacity onPress={goToDetails} key={item.id} style={styles.popularCard}>
-      <Image source={"http://localhost:3000/uploads/" + item.image } style={styles.popularImage} />
+      <Image source={{uri: `${API_URL}/uploads/${item.image}` }} style={styles.popularImage} />
       <View style={styles.popularInfo}>
         <Text style={styles.popularName}>{item.name}</Text>
         <Text style={styles.popularDescription}>{item.description}</Text>

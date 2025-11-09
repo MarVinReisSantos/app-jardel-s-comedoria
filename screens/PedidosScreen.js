@@ -75,7 +75,7 @@ export default function PedidosScreen({ navigation }) {
 
       <View style={styles.itemsContainer}>
         <View style={styles.itemRow}>
-          <Image source={`${API_URL}/uploads/${item.productId.image}`} style={styles.itemImage} />
+          <Image source={{uri:`${API_URL}/uploads/${item.productId.image}`}} style={styles.itemImage} />
           <Text style={styles.itemName}>{item.productId.name}</Text>
         </View>
       </View>

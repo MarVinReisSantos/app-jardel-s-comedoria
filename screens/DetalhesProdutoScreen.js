@@ -82,7 +82,7 @@ export default function DetalhesProdutoScreen({ route, navigation }) {
         navigation={navigation}
       />      
 
-      <Image source={`${API_URL}/uploads/${product.image}`} style={styles.image} />
+      <Image source={{uri:`${API_URL}/uploads/${product.image}`}} style={styles.image} />
 
       <View style={styles.box}>
         <View style={styles.titlePriceRow}>
